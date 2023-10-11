@@ -11,7 +11,7 @@
         <div class="col-12 col-lg-4 px-5 d-flex flex-column justify-content-center">
             <h1 class="text-white">{{ $project->title }}</h1>
 
-            <p> class="white-mb0">Descrizione progetto:</p>
+            <p>Descrizione progetto:</p>
             <h2>{{ $project->description }}</h2>
             <p>immagine sotto</p>
             <img src="{{ asset('/storage/'. $project->image)}}" alt="">
@@ -23,7 +23,9 @@
             <p>{{$project->url_link}}</p>
             <p class="white-mb0">Data pubblicazione :</p>
             <p>{{$project->publication_date->format("d/m/Y")}}</p>
+            <p>@if($project->type_id) {{$project->type->label}}@else // @endif</p>
 
+            
 
         </div>
     </div>

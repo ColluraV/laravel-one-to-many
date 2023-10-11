@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProjectStoreRequest;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -28,7 +29,7 @@ class ProjectController extends Controller
         /*seleziono ilo singolo elemento nel db tramite il suo id
          o restituisco errore 404*/
         $project = Project::findOrFail($id);
-
+        dump($project);
         return view("admin.projects.show", compact("project"));
     }
 
@@ -37,7 +38,8 @@ class ProjectController extends Controller
 
     public function create()
     {
-        return view("admin.projects.create");
+        $types=Type::all();
+        return view("admin.projects.create",compact('types'));
     }
 
 
@@ -48,7 +50,6 @@ class ProjectController extends Controller
         $data = $request->validated();
 
         $counter = 0;
-
         do {
             // genero uno slug univoco per poter recuperare un elemento senza scrivere l'id nell'url (finezza estetica)
 

@@ -34,6 +34,7 @@ class ProjectStoreRequest extends FormRequest
             "publication_date"=>"required",
             "description"=>"nullable",
             "image" => "nullable|image|max:6144",
+            "type_id"=>"nullable|exists:types,id",
         ];
     }
 }

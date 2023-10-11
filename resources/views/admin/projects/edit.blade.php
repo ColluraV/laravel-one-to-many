@@ -29,6 +29,19 @@
                         <label for="description" class="form-label fw-bold">Descrizione</label>
                         <input name="description" type="text" class="form-control" value="{{$project->description}}">
                     </div>
+  
+                    <div class="mb-3">
+                        <select class="form-select" name="type_id" aria-label="Floating label select example">
+                            <option selected>{{ old('type_id') }}</option>
+                            @foreach ($types as $type )
+                            <option @if(old('type_id')==$type->id)selected @endif value="{{$type->id}}">{{ $type->label }}</option>
+                                
+                            @endforeach
+
+                        </select>
+                        <label for="type_id">Scegli la tipologia</label>
+                    </div>
+
                     <div class="mb-3">
                         <label for="image" class="form-label fw-bold">Immagine</label>
                         <input name="image" type="file" class="form-control" accept="image/*">

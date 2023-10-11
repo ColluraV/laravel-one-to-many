@@ -23,7 +23,11 @@ protected $fillable=[
     "publication_date",
     "slug",
     "image",
+    "type_id"
 ];
 
+public function types() {
+    return $this->hasMany(Type::class);
+}
 
 }
