@@ -23,7 +23,7 @@
             <p>{{$project->url_link}}</p>
             <p class="white-mb0">Data pubblicazione :</p>
             <p>{{$project->publication_date->format("d/m/Y")}}</p>
-            <p>@if($project->type_id) {{$project->type->label}}@else // @endif</p>
+            <p>@if($project->type) {{$project->type->label}}@else // @endif</p>
 
             
 

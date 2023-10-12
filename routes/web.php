@@ -40,7 +40,7 @@ Route::middleware(['auth', 'verified'])
         Route::get('/projects/create', [ProjectController::class, "create"])->name("projects.create");
 
         //update
-        Route::get('/projects/{id}/edit', [ProjectController::class, "edit"])->name("projects.edit");
+        Route::get('/projects/{slug}/edit', [ProjectController::class, "edit"])->name("projects.edit");
         Route::put("/projects/{project}", [ProjectController::class, "update"])->name("projects.update");
    
         //delete
